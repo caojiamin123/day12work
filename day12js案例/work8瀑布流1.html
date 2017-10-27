@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work8瀑布流1</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#box{
+				margin: 0 auto;
+				width: 966px;
+				height: auto;
+				overflow: hidden;
+			}
+			#box ul{
+				width: 300px;
+				float: left;
+				border: #000 1px solid;
+				margin-right: 20px;
+			}
+			#box ul li{
+				width: 280px;
+				margin: 10px 9px;
+				border: #666 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function rnd(n,m){
+			return parseInt(Math.random()*(m-n)+n);
+		}
+		
+		function createli(){
+			var oli=document.createElement("li");
+			oli.style.height=rnd(100,400)+"px";
+			oli.style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+			return oli;
+		}
+		
+		
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			var aul=obox.children;
+			
+			function appendli(){
+				for (var i=0;i<10;i++) {
+					var oli=createli();
+					var oh1=aul[0].offsetHeight;
+					var oh2=aul[1].offsetHeight;
+					var oh3=aul[2].offsetHeight;
+					var imin=null;    //假设最小的ul
+					if(oh1<oh2){
+						if(oh1<oh3){
+							imin=aul[0];
+						}else{
+							imin=aul[2];
+						}
+					}else{
+						if(oh2<oh3){
+							imin=aul[1];
+						}else{
+							imin=aul[2];
+						}
+					}
+					imin.appendChild(oli);
+				}
+			}
+			
+			
+			appendli();
+			window.onscroll=function(){
+				var oscrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+				var clienth = document.documentElement.clientHeight;
+				var oboxh = obox.scrollHeight;
+				if(oscrolltop + clienth >= oboxh){
+					appendli();	
+				}	
+			}
+			
+		}
+	</script>
+</html>

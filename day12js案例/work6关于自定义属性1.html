@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work6关于自定义属性1</title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="123"/>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn=document.getElementById("btn");
+			
+			obtn.onclick=function(){
+				obtn.setAttribute("index",1);
+				alert(obtn.getAttribute("index"));
+			}
+		}
+	</script>
+</html>

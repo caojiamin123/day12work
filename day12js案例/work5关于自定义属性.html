@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work5关于自定义属性</title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="123" index="abc"/>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn=document.getElementById("btn");
+			
+			obtn.onclick=function(){
+				alert(obtn.getAttribute("index"));
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work12输入框文字提示1</title>
+		<style type="text/css">
+			span{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="txt" value=""/>
+		<span id="span">文字提示信息</span>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var otxt=document.getElementById("txt");
+			var ospan=document.getElementById("span");
+			
+			otxt.onfocus=function(){
+				ospan.style.display='none';
+			}
+			
+			otxt.onblur=function(){
+				if(otxt.value!=''){
+					ospan.style.display='none';
+				}else{
+					ospan.style.display="block";
+				}	
+			}
+			
+			ospan.onclick=function(){
+				this.style.display="none";
+				otxt.focus();
+			}
+		}
+	</script>
+</html>

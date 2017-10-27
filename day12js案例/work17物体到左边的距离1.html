@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work17物体到左边的距离1</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+			}
+			#box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-left: 100px;
+			}
+			#box2{
+				margin-left: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box2">
+			<div id="box1"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obox1=document.getElementById("box1");
+			
+			obox1.onclick=function(){
+				alert(obox1.offsetLeft);
+			}
+		}
+	</script>
+</html>
